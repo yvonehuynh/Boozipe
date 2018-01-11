@@ -4,6 +4,7 @@ import axios from "axios";
 import Qs from 'qs';
 import Boozeinputs from "./boozeinputs";
 import Boozecontainer from "./boozecontainer";
+import Recipecontainer from "./recipecontainer";
 
 class App extends React.Component {
   constructor() {
@@ -41,7 +42,6 @@ class App extends React.Component {
     };
 searchFood(e){
   const search = e.currentTarget.textContent;
-  console.log(search)
   axios({
     method: 'GET',
     url: 'https://proxy.hackeryou.com',
@@ -64,7 +64,6 @@ searchFood(e){
     this.setState({
       recipes: result
     })
-    console.log(this.state.recipes)
   })
 }
   render() {
@@ -76,6 +75,10 @@ searchFood(e){
           return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id} food={this.searchFood}/>   
           }
         )}
+        {this.state.recipes.map(res=>{
+          console.log(res.recipeName)
+          return <Recipecontainer recipe={res} food={this.searchFood}/>
+        })}
    </div>
 
     )
