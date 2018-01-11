@@ -76,7 +76,7 @@ searchFood(e){
           }
         )}
         {this.state.recipes.map(res=>{
-          console.log(res.recipeName)
+          console.log(res)
           return <Recipecontainer recipe={res} food={this.searchFood}/>
         })}
    </div>
