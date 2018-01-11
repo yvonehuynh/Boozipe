@@ -11,7 +11,8 @@ class App extends React.Component {
     this.state={
       booze: []
     }
-    this.searchBooze = this.searchBooze.bind(this)
+    this.searchBooze = this.searchBooze.bind(this);
+    this.searchFood = this.searchFood.bind(this);
   }
   searchBooze(e) {
     e.preventDefault();
@@ -24,10 +25,7 @@ class App extends React.Component {
         return Qs.stringify(params, { arrayFormat: 'brackets' })
       },
       params: {
-        reqUrl: 'http://lcboapi.com/products?access_key=MDoxNmMwYzI1YS1mNjRmLTExZTctYmE5Ni1mZjJjMWViODQ2Njg6QWtxc1ltNGVZUE9zTVhIZjg3ckR0ZFNJYUJVUndiWW4xR1BD',
-        params: {
-          q: `${booze}`
-        },
+        reqUrl: `http://lcboapi.com/products?access_key=MDoxNmMwYzI1YS1mNjRmLTExZTctYmE5Ni1mZjJjMWViODQ2Njg6QWtxc1ltNGVZUE9zTVhIZjg3ckR0ZFNJYUJVUndiWW4xR1BD&q=${booze}`,
         proxyHeaders: {
           'header_params': 'value'
         },
@@ -36,25 +34,23 @@ class App extends React.Component {
     }).then(res => {
       const result = res.data.result;
       console.log(result)
-      // result.map(res=>
-      // {
-      //   console.log(res)
-      //   const resultArray = [];
-      //   resultArray.push(res);
         this.setState({
           booze: result
         })
       })
     };
-
-  
+searchFood(e){
+  console.log("hello");
+  const search = e.currentTarget.textContent;
+  console.log(search)
+}
   render() {
     return (
       <div>
         <Boozeinputs search={this.searchBooze} />
         {this.state.booze.map(res =>
           {
-          return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id}/>   
+          return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id} food={this.searchFood}/>   
           }
         )}
    </div>
