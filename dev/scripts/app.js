@@ -9,7 +9,8 @@ class App extends React.Component {
   constructor() {
     super();
     this.state={
-      booze: []
+      booze: [],
+      recipes: []
     }
     this.searchBooze = this.searchBooze.bind(this);
     this.searchFood = this.searchFood.bind(this);
@@ -33,16 +34,38 @@ class App extends React.Component {
       }
     }).then(res => {
       const result = res.data.result;
-      console.log(result)
         this.setState({
           booze: result
         })
       })
     };
 searchFood(e){
-  console.log("hello");
   const search = e.currentTarget.textContent;
   console.log(search)
+  axios({
+    method: 'GET',
+    url: 'https://proxy.hackeryou.com',
+    dataResponse: 'json',
+    paramsSerializer: function (params) {
+      return Qs.stringify(params, { arrayFormat: 'brackets' })
+    },
+    params: {
+      reqUrl: `http://api.yummly.com/v1/api/recipes?_app_id=89ffe2b6&_app_key=30c0ddd0d202674645f74d80c5d0d94e&`,
+      params: {
+        q: `${search}`
+      },
+      proxyHeaders: {
+        'header_params': 'value'
+      },
+      xmlToJSON: false
+    }
+  }).then(res => {
+    const result = res.data.matches
+    this.setState({
+      recipes: result
+    })
+    console.log(this.state.recipes)
+  })
 }
   render() {
     return (
