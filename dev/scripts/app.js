@@ -68,7 +68,7 @@ searchFood(e){
 }
   render() {
     return (
-      <div>
+      <div className="wrapper">
         <Boozeinputs search={this.searchBooze} />
         {this.state.recipes.length
         ? null
@@ -79,9 +79,11 @@ searchFood(e){
           }
         )
         }
-        {this.state.recipes.map(res=>{
-          return <Recipecontainer recipe={res} key={res.id} food={this.searchFood}/>
-        })}
+        <div className="recipe-parent-container">
+          {this.state.recipes.map(res=>{
+            return <Recipecontainer recipe={res} key={res.id} food={this.searchFood}/>
+          })}
+        </div>
    </div>
     )
   }

@@ -6,13 +6,12 @@ export default class Recipecontainer extends React.Component {
         let recipeIngredients = recipe.ingredients;
         recipeIngredients = recipeIngredients.map((item, index) => <li key={index}>{item}</li>);
         return (
-            <div>
-                <li>{recipe.recipeName}</li>
-                <ul>{recipeIngredients}</ul>
-              
-                <div>
+            <div className="recipe-container">
+                <h3 className="recipe-name">{recipe.recipeName}</h3>
+                <div className="food-img">
                     <img src={recipe.smallImageUrls} alt=""/>
                 </div>
+                <ul className="ingredient-list">{recipeIngredients}</ul>
             </div>
         )
     }
