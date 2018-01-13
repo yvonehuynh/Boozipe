@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import axios from "axios";
 import Qs from 'qs';
+import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Boozeinputs from "./boozeinputs";
 import Boozecontainer from "./boozecontainer";
 import Recipecontainer from "./recipecontainer";
@@ -11,7 +12,8 @@ class App extends React.Component {
     super();
     this.state={
       booze: [],
-      recipes: []
+      recipes: [],
+      showBooze: false
     }
     this.searchBooze = this.searchBooze.bind(this);
     this.searchFood = this.searchFood.bind(this);
@@ -36,7 +38,8 @@ class App extends React.Component {
     }).then(res => {
       const result = res.data.result;
         this.setState({
-          booze: result
+          booze: result,
+          showBooze: true
         })
       })
     };
@@ -50,10 +53,7 @@ searchFood(e){
       return Qs.stringify(params, { arrayFormat: 'brackets' })
     },
     params: {
-      reqUrl: `http://api.yummly.com/v1/api/recipes?_app_id=89ffe2b6&_app_key=30c0ddd0d202674645f74d80c5d0d94e&`,
-      params: {
-        q: `${search}`
-      },
+      reqUrl: `http://api.yummly.com/v1/api/recipes?_app_id=89ffe2b6&_app_key=30c0ddd0d202674645f74d80c5d0d94e&q=${search}`,
       proxyHeaders: {
         'header_params': 'value'
       },
@@ -70,19 +70,26 @@ searchFood(e){
     return (
       <div>
         <Boozeinputs search={this.searchBooze} />
-        {this.state.booze.map(res =>
+        {this.state.recipes.length
+        ? null
+        :
+        this.state.booze.map(res =>
           {
+            console.log("first", res)
           return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id} food={this.searchFood}/>   
           }
-        )}
+        )
+        }
         {this.state.recipes.map(res=>{
-          console.log(res)
+          console.log("second",res)
           return <Recipecontainer recipe={res} food={this.searchFood}/>
         })}
    </div>
-
     )
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <Router>
+  <App />
+ </Router>, document.getElementById('app'));
