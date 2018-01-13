@@ -20,7 +20,7 @@ class App extends React.Component {
   }
   searchBooze(e) {
     e.preventDefault();
-    const booze = document.getElementById("booze-input").value;
+    const booze = document.getElementById("booze-input").value.replace(/\s+/g, "+");
     axios({
       method: 'GET',
       url: 'https://proxy.hackeryou.com',
@@ -75,14 +75,12 @@ searchFood(e){
         :
         this.state.booze.map(res =>
           {
-            console.log("first", res)
           return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id} food={this.searchFood}/>   
           }
         )
         }
         {this.state.recipes.map(res=>{
-          console.log("second",res)
-          return <Recipecontainer recipe={res} food={this.searchFood}/>
+          return <Recipecontainer recipe={res} key={res.id} food={this.searchFood}/>
         })}
    </div>
     )
