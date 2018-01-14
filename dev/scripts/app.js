@@ -14,10 +14,12 @@ class App extends React.Component {
     this.state={
       booze: [],
       recipes: [],
-      showBooze: false
+      recipeName: [],
+      recipeIngredients: []
     }
     this.searchBooze = this.searchBooze.bind(this);
     this.searchFood = this.searchFood.bind(this);
+    this.saveData = this.saveData.bind(this);
   }
   searchBooze(e) {
     e.preventDefault();
@@ -62,11 +64,13 @@ searchFood(e){
     }
   }).then(res => {
     const result = res.data.matches
-    console.log(result)
     this.setState({
       recipes: result
     })
   })
+}
+saveData(e){
+
 }
   render() {
     return (
@@ -88,8 +92,8 @@ searchFood(e){
         }
 
         <div className="recipe-parent-container">
-          {this.state.recipes.map(res=>{
-            return <Recipecontainer recipe={res} key={res.id} food={this.searchFood}/>
+          {this.state.recipes.map(res =>{
+            return <Recipecontainer recipe={res} key={res.id} food={this.searchFood} save={this.saveData} recipeName={this.state.recipeName}/>
           })}
         </div>
         <button onClick={()=>this.setState({booze: [], recipes: []})}>Reset</button>
@@ -99,6 +103,4 @@ searchFood(e){
 }
 
 ReactDOM.render(
-  <Router>
-  <App />
- </Router>, document.getElementById('app'));
+  <App />, document.getElementById('app'));
