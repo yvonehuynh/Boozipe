@@ -1,0 +1,281 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, nav, section, summary {
+  display: block; }
+
+audio, canvas, video {
+  display: inline-block; }
+
+audio:not([controls]) {
+  display: none;
+  height: 0; }
+
+[hidden] {
+  display: none; }
+
+html {
+  font-family: sans-serif;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%; }
+
+a:focus {
+  outline: thin dotted; }
+
+a:active, a:hover {
+  outline: 0; }
+
+h1 {
+  font-size: 2em; }
+
+abbr[title] {
+  border-bottom: 1px dotted; }
+
+b, strong {
+  font-weight: 700; }
+
+dfn {
+  font-style: italic; }
+
+mark {
+  background: #ff0;
+  color: #000; }
+
+code, kbd, pre, samp {
+  font-family: monospace, serif;
+  font-size: 1em; }
+
+pre {
+  white-space: pre-wrap;
+  word-wrap: break-word; }
+
+q {
+  quotes: \201C \201D \2018 \2019; }
+
+small {
+  font-size: 80%; }
+
+sub, sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline; }
+
+sup {
+  top: -.5em; }
+
+sub {
+  bottom: -.25em; }
+
+img {
+  border: 0; }
+
+svg:not(:root) {
+  overflow: hidden; }
+
+fieldset {
+  border: 1px solid silver;
+  margin: 0 2px;
+  padding: .35em .625em .75em; }
+
+button, input, select, textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0; }
+
+button, input {
+  line-height: normal; }
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer; }
+
+button[disabled], input[disabled] {
+  cursor: default; }
+
+input[type=checkbox], input[type=radio] {
+  box-sizing: border-box;
+  padding: 0; }
+
+input[type=search] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box; }
+
+input[type=search]::-webkit-search-cancel-button, input[type=search]::-webkit-search-decoration {
+  -webkit-appearance: none; }
+
+textarea {
+  overflow: auto;
+  vertical-align: top; }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0; }
+
+body, figure {
+  margin: 0; }
+
+legend, button::-moz-focus-inner, input::-moz-focus-inner {
+  border: 0;
+  padding: 0; }
+
+.clearfix:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: '';
+  clear: both;
+  height: 0; }
+
+* {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.recipe-parent-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+.recipe-container {
+  background: rgba(249, 108, 48, 0.5);
+  border: 5px solid rgba(255, 78, 2, 0.872);
+  border-radius: 10px;
+  margin: 20px 0;
+  padding: 10px;
+  width: 30%; }
+  @media only screen and (max-width: 640px) {
+    .recipe-container {
+      width: 40%; } }
+  @media only screen and (max-width: 640px) {
+    .recipe-container {
+      width: 80%; } }
+
+.food-img {
+  display: flex;
+  justify-content: center; }
+
+form {
+  display: flex;
+  width: 50%;
+  margin: 0 auto; }
+  form input {
+    width: 80%; }
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+button {
+  background: black;
+  color: white;
+  font-weight: bold;
+  text-transform: uppercase; }
+
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+
+.logo {
+  width: 20%; }
+
+.main-description {
+  font-size: 2rem; }
+
+.description {
+  text-align: center; }
+
+.coloured {
+  color: #138eff;
+  font-weight: bold; }
+
+.booze-parent-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+  @media only screen and (max-width: 640px) {
+    .booze-parent-container {
+      flex-direction: column; } }
+
+.alcohol-listing {
+  position: relative;
+  margin: 10px;
+  width: 30%; }
+  @media only screen and (max-width: 640px) {
+    .alcohol-listing {
+      width: 40%; } }
+  @media only screen and (max-width: 640px) {
+    .alcohol-listing {
+      width: 80%;
+      margin: 10px auto; } }
+
+.category {
+  z-index: 1;
+  position: relative;
+  opacity: 0;
+  display: inline-block;
+  width: 21%;
+  height: 5%;
+  cursor: pointer; }
+
+.booze-select {
+  position: absolute;
+  left: 0; }
+
+html {
+  font-size: 62.5%; }
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  background: linear-gradient(80deg, peachpuff, #7db9ee); }
+
+img {
+  max-width: 100%; }
+
+h1 {
+  font-size: 5rem;
+  color: #138eff;
+  margin-bottom: 0; }
+
+h3 {
+  font-size: 1.5rem; }
+
+.wrapper {
+  width: 90%;
+  margin: 0 auto; }
+
+.visuallyhidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0; }
+
+@keyframes wobble {
+  from {
+    transform: none; }
+  15% {
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg); }
+  30% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg); }
+  45% {
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg); }
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg); }
+  75% {
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg); }
+  to {
+    transform: none; } }
+
+.wobble {
+  animation-name: wobble; }
+
+.animated {
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: both; }

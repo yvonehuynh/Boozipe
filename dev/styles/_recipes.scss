@@ -4,4 +4,15 @@
 
 .recipe-container {
     @include cards(rgba(255, 78, 2, 0.872));
+    @media only screen and (max-width: 640px) {
+        width: 40%;
+    }
+    @media only screen and (max-width: 640px) {
+        width: 80%;
+    }
+}
+
+.food-img {
+    display: flex;
+    justify-content: center;
 }

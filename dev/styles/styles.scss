@@ -20,11 +20,15 @@ body {
     background: linear-gradient(80deg, peachpuff, rgb(125, 185, 238));
 }
 
+img {
+    max-width: 100%;
+}
 // typography
 
 h1 {
     font-size: 5rem;
     color: #138eff;
+    margin-bottom: 0;
 }
 
 h3 {
@@ -44,4 +48,44 @@ h3 {
   clip: rect(0 0 0 0); 
   height: 1px; width: 1px; 
   margin: -1px; padding: 0; border: 0; 
+}
+
+@keyframes wobble {
+  from {
+    transform: none;
+  }
+
+  15% {
+    transform: translate3d(-25%, 0, 0) rotate3d(0, 0, 1, -5deg);
+  }
+
+  30% {
+    transform: translate3d(20%, 0, 0) rotate3d(0, 0, 1, 3deg);
+  }
+
+  45% {
+    transform: translate3d(-15%, 0, 0) rotate3d(0, 0, 1, -3deg);
+  }
+
+  60% {
+    transform: translate3d(10%, 0, 0) rotate3d(0, 0, 1, 2deg);
+  }
+
+  75% {
+    transform: translate3d(-5%, 0, 0) rotate3d(0, 0, 1, -1deg);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+.wobble {
+  animation-name: wobble;
+}
+
+.animated {
+  animation-duration: 1s;
+  animation-delay: 1s;
+  animation-fill-mode: both;
 }

@@ -38,10 +38,9 @@ class App extends React.Component {
         xmlToJSON: false
       }
     }).then(res => {
-      const result = res.data.result;
+      const booze = res.data.result;
         this.setState({
-          booze: result,
-          showBooze: true
+          booze
         })
       })
     };
@@ -62,9 +61,9 @@ searchFood(e){
       xmlToJSON: false
     }
   }).then(res => {
-    const result = res.data.matches
+    const recipes = res.data.matches
     this.setState({
-      recipes: result
+      recipes
     })
   })
 }
@@ -72,19 +71,20 @@ searchFood(e){
     return (
       <div className="wrapper">
         <Header />
-      {this.state.booze.length ? null :
-        <Boozeinputs search={this.searchBooze} />
-      }
+        {this.state.booze.length ? null :
+          <Boozeinputs search={this.searchBooze} />
+        }
+
         {this.state.recipes.length
         ? null
         :
           <div className="booze-parent-container">
-        {this.state.booze.map(res =>
-          {
-          return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id} food={this.searchFood}/>   
-          }
-        )}
-        </div>
+              {this.state.booze.map(res =>
+                {
+                return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id} food={this.searchFood}/>   
+                }
+              )}
+              </div>
         }
 
         <div className="recipe-parent-container">
@@ -92,6 +92,7 @@ searchFood(e){
             return <Recipecontainer recipe={res} key={res.id} food={this.searchFood} save={this.saveData} recipeName={this.state.recipeName}/>
           })}
         </div>
+
         {this.state.booze.length || this.state.recipes.length ? 
         <button onClick={()=>this.setState({booze: [], recipes: []})}>Reset</button> : null}
    </div>
@@ -99,5 +100,4 @@ searchFood(e){
   }
 }
 
-ReactDOM.render(
-  <App />, document.getElementById('app'));
+ReactDOM.render(<App />, document.getElementById('app'));

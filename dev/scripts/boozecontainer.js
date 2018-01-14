@@ -10,12 +10,15 @@ export default class Boozecontainer extends React.Component {
                 <div>
                     <img src={item.image_thumb_url} alt=""/>
                 </div>
-                <span 
-                    className="category"
-                    onClick={this.props.food}>
-                    {item.secondary_category}
-                </span>
-                <button className="booze-select">Select</button>
+                <div>
+                    <span 
+                        className="category"
+                        onClick={this.props.food}>
+                        {item.secondary_category}
+                    </span>
+
+                    <button className="booze-select">Select</button>
+                </div>
             </div>
         )
     }
