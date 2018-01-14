@@ -4,16 +4,14 @@ export default class Recipecontainer extends React.Component {
     render(){
         const recipe = this.props.recipe;
         let recipeIngredients = recipe.ingredients;
-        recipeIngredients = recipeIngredients.map((item, index) => <p key={index}>{item}</p>);
+        recipeIngredients = recipeIngredients.map((item, index) => <li key={index}>{item}</li>);
         return (
-                <div className="recipe-container">
+            <div className="recipe-container">
+                <h3 className="recipe-name" ref={(ref => this.name = ref)}>{recipe.recipeName}</h3>
                 <div className="food-img">
                     <img src={recipe.smallImageUrls} alt=""/>
                 </div>
-                <div className="contain">
-                    <h3 className="recipe-name" ref={(ref => this.name = ref)}>{recipe.recipeName}</h3>
-                    <div className="ingredient-list" ref={(ref => this.list = ref)}>{recipeIngredients}</div>
-                </div>
+                    <ul className="ingredient-list" ref={(ref => this.list = ref)}>{recipeIngredients}</ul>
             </div>
         )
     }
