@@ -69,7 +69,9 @@ searchFood(e){
   render() {
     return (
       <div className="wrapper">
+      {this.state.booze.length ? null :
         <Boozeinputs search={this.searchBooze} />
+      }
         {this.state.recipes.length
         ? null
         :
@@ -79,11 +81,13 @@ searchFood(e){
           }
         )
         }
+
         <div className="recipe-parent-container">
           {this.state.recipes.map(res=>{
             return <Recipecontainer recipe={res} key={res.id} food={this.searchFood}/>
           })}
         </div>
+        <button onClick={()=>this.setState({booze: [], recipes: []})}>Reset</button>
    </div>
     )
   }
