@@ -62,6 +62,7 @@ searchFood(e){
     }
   }).then(res => {
     const result = res.data.matches
+    console.log(result)
     this.setState({
       recipes: result
     })
@@ -77,11 +78,13 @@ searchFood(e){
         {this.state.recipes.length
         ? null
         :
-        this.state.booze.map(res =>
+          <div className="booze-parent-container">
+        {this.state.booze.map(res =>
           {
           return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id} food={this.searchFood}/>   
           }
-        )
+        )}
+        </div>
         }
 
         <div className="recipe-parent-container">

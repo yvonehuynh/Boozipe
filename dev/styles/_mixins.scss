@@ -1,0 +1,14 @@
+@mixin cards($borderColor) {
+    background: rgba(249, 108, 48, 0.5);
+    border: 5px solid $borderColor;
+    border-radius: 10px;
+    margin: 20px 0;
+    padding: 10px;
+    width: 30%;
+}
+
+@mixin parentFlex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}

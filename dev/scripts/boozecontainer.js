@@ -5,18 +5,16 @@ export default class Boozecontainer extends React.Component {
     render(){
         const item = this.props.item;
         return (
-            <div>
-                <li className="alcohol-listing">
-                    <p>{item.name}</p>
-                    <div>
-                        <img src={item.image_thumb_url} alt=""/>
-                    </div>
-                    <p 
+            <div className="alcohol-listing">
+                <h3>{item.name}</h3>
+                <div>
+                    <img src={item.image_thumb_url} alt=""/>
+                </div>
+                <p 
                     onClick={this.props.food} 
                     className="category">
                     {item.secondary_category}
-                    </p>
-                </li>
+                </p>
             </div>
         )
     }
