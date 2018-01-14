@@ -10,11 +10,12 @@ export default class Boozecontainer extends React.Component {
                 <div>
                     <img src={item.image_thumb_url} alt=""/>
                 </div>
-                <p 
-                    onClick={this.props.food} 
-                    className="category">
+                <span 
+                    className="category"
+                    onClick={this.props.food}>
                     {item.secondary_category}
-                </p>
+                </span>
+                <button className="booze-select">Select</button>
             </div>
         )
     }

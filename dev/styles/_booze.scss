@@ -1,3 +1,22 @@
 .booze-parent-container {
     @include parentFlex;
 }
+
+.alcohol-listing {
+    position: relative;
+}
+
+.category {
+    z-index: 1;
+    position: relative;
+    opacity: 0;
+    display: inline-block;
+    width: 21%;
+    height: 5%;
+    cursor: pointer;
+}
+
+.booze-select {
+    position: absolute;
+    left: 0;
+}
