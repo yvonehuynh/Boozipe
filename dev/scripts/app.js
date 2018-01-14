@@ -19,7 +19,6 @@ class App extends React.Component {
     }
     this.searchBooze = this.searchBooze.bind(this);
     this.searchFood = this.searchFood.bind(this);
-    this.saveData = this.saveData.bind(this);
   }
   searchBooze(e) {
     e.preventDefault();
@@ -69,9 +68,6 @@ searchFood(e){
     })
   })
 }
-saveData(e){
-
-}
   render() {
     return (
       <div className="wrapper">
@@ -96,7 +92,8 @@ saveData(e){
             return <Recipecontainer recipe={res} key={res.id} food={this.searchFood} save={this.saveData} recipeName={this.state.recipeName}/>
           })}
         </div>
-        <button onClick={()=>this.setState({booze: [], recipes: []})}>Reset</button>
+        {this.state.booze.length || this.state.recipes.length ? 
+        <button onClick={()=>this.setState({booze: [], recipes: []})}>Reset</button> : null}
    </div>
     )
   }
