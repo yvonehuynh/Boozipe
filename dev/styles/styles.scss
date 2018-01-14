@@ -1,6 +1,8 @@
 @import "setup";
 @import "recipes";
 @import "boozeinput";
+@import "buttons";
+@import "header";
 
 // general stypes
 
@@ -20,10 +22,20 @@ body {
 
 h1 {
     font-size: 5rem;
+    color: #138eff;
 }
 
 // wrapper
 .wrapper {
     width: 90%;
     margin: 0 auto;
+}
+
+// visually hidden for labels
+.visuallyhidden { 
+  position: absolute; 
+  overflow: hidden; 
+  clip: rect(0 0 0 0); 
+  height: 1px; width: 1px; 
+  margin: -1px; padding: 0; border: 0; 
 }

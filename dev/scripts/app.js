@@ -6,6 +6,7 @@ import { BrowserRouter as Router, Route, Link, Switch } from 'react-router-dom';
 import Boozeinputs from "./boozeinputs";
 import Boozecontainer from "./boozecontainer";
 import Recipecontainer from "./recipecontainer";
+import Header from "./header";
 
 class App extends React.Component {
   constructor() {
@@ -53,7 +54,7 @@ searchFood(e){
       return Qs.stringify(params, { arrayFormat: 'brackets' })
     },
     params: {
-      reqUrl: `http://api.yummly.com/v1/api/recipes?_app_id=89ffe2b6&_app_key=30c0ddd0d202674645f74d80c5d0d94e&q=${search}`,
+      reqUrl: `http://api.yummly.com/v1/api/recipes?_app_id=89ffe2b6&_app_key=30c0ddd0d202674645f74d80c5d0d94e&q=${search}&requirePictures=true`,
       proxyHeaders: {
         'header_params': 'value'
       },
@@ -69,6 +70,7 @@ searchFood(e){
   render() {
     return (
       <div className="wrapper">
+        <Header />
       {this.state.booze.length ? null :
         <Boozeinputs search={this.searchBooze} />
       }

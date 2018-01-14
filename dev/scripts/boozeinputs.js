@@ -9,9 +9,9 @@ export default class Boozeinputs extends React.Component {
         return (
             <div className="input-container">
                 <form action="" onSubmit={this.props.search}>
-                    <label htmlFor="booze-search">Search Your Alcohol</label>
+                    <label htmlFor="booze-search" className="visuallyhidden">Search Your Alcohol</label>
                     <input type="text" name="booze-search" placeholder="search your alcohol" id="booze-input" />
-                    <input type="submit" />
+                    <button>Submit</button>
                 </form>
             </div>
         )
