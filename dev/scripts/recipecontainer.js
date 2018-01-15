@@ -11,6 +11,7 @@ export default class Recipecontainer extends React.Component {
                 <div className="food-img">
                     <img src={recipe.smallImageUrls} alt=""/>
                 </div>
+                <h3>ingredients:</h3>
                     <ul className="ingredient-list" ref={(ref => this.list = ref)}>{recipeIngredients}</ul>
             </div>
         )
