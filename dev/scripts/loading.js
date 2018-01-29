@@ -3,50 +3,52 @@ import React from "react";
 export default class Loading extends React.Component {
     render(){
         return (
-            <div class="loader">
-                <div class="loading">
-                    <div class="letter">
+            <div className="loader">
+                <div className="loading">
+                    <div className="letter">
                         <div>L</div>
-                        <div class="back">L</div>
+                        <div className="back">L</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>o</div>
-                        <div class="back">o</div>
+                        <div className="back">o</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>a</div>
-                        <div class="back">a</div>
+                        <div className="back">a</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>d</div>
-                        <div class="back">d</div>
+                        <div className="back">d</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>i</div>
-                        <div class="back">i</div>
+                        <div className="back">i</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>n</div>
-                        <div class="back">n</div>
+                        <div className="back">n</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>g</div>
-                        <div class="back">g</div>
+                        <div className="back">g</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>.</div>
-                        <div class="back">.</div>
+                        <div className="back">.</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>.</div>
-                        <div class="back">.</div>
+                        <div className="back">.</div>
                     </div>
-                    <div class="letter">
+                    <div className="letter">
                         <div>.</div>
-                        <div class="back">.</div>
+                        <div className="back">.</div>
                     </div>
                 </div>
             </div>
         )
     }
 }
+
+// loading screen code taken courtesy of https://codepen.io/AMKohn/pen/LzCrk?page=7
