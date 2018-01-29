@@ -15,13 +15,17 @@ class App extends React.Component {
       booze: [],
       recipes: [],
       recipeName: [],
-      recipeIngredients: []
+      recipeIngredients: [],
+      loading: false
     }
     this.searchBooze = this.searchBooze.bind(this);
     this.searchFood = this.searchFood.bind(this);
   }
   searchBooze(e) {
     e.preventDefault();
+    this.setState({
+      loading: true
+    })
     const booze = document.getElementById("booze-input").value.replace(/\s+/g, "+");
     axios({
       method: 'GET',
@@ -40,11 +44,15 @@ class App extends React.Component {
     }).then(res => {
       const booze = res.data.result;
         this.setState({
-          booze
+          booze,
+          laoding: false
         })
       })
     };
 searchFood(e){
+  this.setState({
+    loading: true
+  })
   const search = e.currentTarget.textContent;
   axios({
     method: 'GET',
@@ -63,7 +71,8 @@ searchFood(e){
   }).then(res => {
     const recipes = res.data.matches
     this.setState({
-      recipes
+      recipes,
+      loading: false
     })
   })
 }
@@ -72,7 +81,7 @@ searchFood(e){
       <div className="wrapper">
         <Header />
         {this.state.booze.length ? null :
-          <Boozeinputs search={this.searchBooze} />
+          <Boozeinputs search={this.searchBooze} load={this.state.loading}/>
         }
 
         {this.state.recipes.length
@@ -89,7 +98,7 @@ searchFood(e){
 
         <div className="recipe-parent-container">
           {this.state.recipes.map(res =>{
-            return <Recipecontainer recipe={res} key={res.id} food={this.searchFood} save={this.saveData} recipeName={this.state.recipeName}/>
+            return <Recipecontainer recipe={res} key={res.id} food={this.searchFood} save={this.saveData} recipeName={this.state.recipeName} load={this.state.loading}/>
           })}
         </div>
 
