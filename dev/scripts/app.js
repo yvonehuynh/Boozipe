@@ -89,7 +89,7 @@ searchFood(e){
         {this.state.recipes.length
         ? null
         :
-        <BoozeParent search={this.searchBooze} booze={this.state.booze} food={this.searchFood}/>   
+          <BoozeParent search={this.searchBooze} booze={this.state.booze} food={this.searchFood} load={this.state.loading}/>   
         }
 
         <RecipeParent food={this.searchFood} save={this.saveData} recipeName={this.state.recipeName} load={this.state.loading} recipes={this.state.recipes}/>
