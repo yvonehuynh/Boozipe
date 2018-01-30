@@ -7,6 +7,8 @@ import Boozeinputs from "./boozeinputs";
 import Boozecontainer from "./boozecontainer";
 import Recipecontainer from "./recipecontainer";
 import Header from "./header";
+import BoozeParent from "./boozeparent";
+import RecipeParent from "./recipeparent";
 
 class App extends React.Component {
   constructor() {
@@ -87,20 +89,10 @@ searchFood(e){
         {this.state.recipes.length
         ? null
         :
-          <div className="booze-parent-container">
-              {this.state.booze.map(res =>
-                {
-                return <Boozecontainer search={this.searchBooze} item={res} booze={this.state.booze} key={res.id} food={this.searchFood}/>   
-                }
-              )}
-              </div>
+        <BoozeParent search={this.searchBooze} booze={this.state.booze} food={this.searchFood}/>   
         }
 
-        <div className="recipe-parent-container">
-          {this.state.recipes.map(res =>{
-            return <Recipecontainer recipe={res} key={res.id} food={this.searchFood} save={this.saveData} recipeName={this.state.recipeName} load={this.state.loading}/>
-          })}
-        </div>
+        <RecipeParent food={this.searchFood} save={this.saveData} recipeName={this.state.recipeName} load={this.state.loading} recipes={this.state.recipes}/>
 
         {this.state.booze.length || this.state.recipes.length ? 
         <button onClick={()=>this.setState({booze: [], recipes: []})}>Reset</button> : null}
