@@ -17,6 +17,10 @@ export default class Boozeinputs extends React.Component {
                     <input type="text" name="booze-search" placeholder="search your alcohol" id="booze-input" />
                     <button>Submit</button>
                 </form>
+                <div className="booze-icon">
+                    <i className="fa fa-glass animated wobble" aria-hidden="true"></i>
+                    <i className="fa fa-cutlery animated wobble" aria-hidden="true"></i>
+                </div>
             </div>
         )
     }

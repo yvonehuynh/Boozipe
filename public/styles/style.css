@@ -267,10 +267,16 @@ form {
   form input {
     width: 80%; }
 
-.input-container {
+.booze-icon {
+  font-size: 5rem;
+  color: white;
+  display: block;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  margin-top: 40px; }
+  .booze-icon i {
+    margin: 10px; }
 
 button {
   background: black;
